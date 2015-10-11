@@ -14,17 +14,61 @@ composer require graphaware/neo4j-common
 
 ### Graph
 
-* Direction (Enum) : representation of a RelationshipDirection
+#### Direction (Enum) : representation of a Relationship Direction
+
+```php
+
+use GraphAware\Common\Graph\Direction;
+
+$direction = new Direction(Direction::INCOMING);
+echo $direction; // Returns (string) "INCOMING"
+
+// Or static call construction
+
+$direction = Direction::OUTGOING;
+echo $direction; // Returns (string) "OUTGOING"
+```
+
+Valid values are `INCOMING`, `OUTGOING` and `BOTH`.
 
 ### Cypher
 
-* Statement
-* StatementCollection
+#### Statement and StatementCollection
 
 Utility classes representing Cypher's statements. Both `Statement` and `StatementCollection` classes are 
 `taggable`.
 
 Contains also `StatementInterface` and `StatementCollectionInterface` used in most GraphAware's PHP libraries.
+
+##### Statement
+
+Represents a Cypher statement with a query and an array of parameters. Also the Statement accepts a `tag` argument default to null;
+
+```php
+
+use GraphAware\Common\Cypher\Statement;
+
+$statement = Statement::create("MATCH (n) WHERE id(n) = {id} RETURN n", array("id" => 324));
+
+echo $statement->getQuery(); // Returns (string) "MATCH (n) WHERE id(n) = {id} RETURN n"
+echo count($statement->getParameters()); // Returns (int) 1
+```
+
+##### StatementCollection
+
+Represents a collection of `Statement` objects. Is also Taggable.
+
+```php
+
+use GraphAware\Common\Cypher\Statement
+    GraphAware\Common\Cypher\StatementCollection;
+
+$collection = new StatementCollection();
+$collection->add(Statement::create("MATCH (n) RETURN count(n)"));
+
+print_r($collection->getStatements());
+echo $collection->isEmpty();
+```
 
 ---
 
