@@ -10,7 +10,7 @@ before_install:
     - composer self-update
 
 script:
-    - vendor/bin/phpunit
+    - ./vendor/bin/phpunit
 
 notifications:
     email: "christophe@graphaware.com"
