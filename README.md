@@ -2,6 +2,8 @@
 
 ## Library with common utility classes for Neo4j
 
+[![Build Status](https://travis-ci.org/graphaware/neo4j-php-commons.svg)](https://travis-ci.org/graphaware/neo4j-php-commons)
+
 ### Installation
 
 Require the dependencies in your application :
