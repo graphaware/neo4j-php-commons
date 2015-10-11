@@ -42,6 +42,7 @@ $relType = RelationshipType::withName("FOLLOWS");
 echo $relType->getName(); // Returns (string) "FOLLOWS"
 echo (string) $relType; // implements __toString method : Returns (string) "FOLLOWS"
 ```
+---
 
 ### Cypher
 
