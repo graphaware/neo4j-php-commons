@@ -2,6 +2,14 @@
 
 ## Library with common utility classes for Neo4j
 
+### Installation
+
+Require the dependencies in your application :
+
+```bash
+composer require graphaware/neo4j-common
+```
+
 ### Cypher
 
 * Statement
