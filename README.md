@@ -12,6 +12,8 @@ Require the dependencies in your application :
 composer require graphaware/neo4j-common
 ```
 
+---
+
 ### Graph
 
 #### Direction (Enum) : representation of a Relationship Direction
