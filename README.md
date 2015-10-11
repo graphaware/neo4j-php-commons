@@ -31,6 +31,18 @@ echo $direction; // Returns (string) "OUTGOING"
 
 Valid values are `INCOMING`, `OUTGOING` and `BOTH`.
 
+#### RelationshipType
+
+Object representation of a relationship type.
+
+```php
+use GraphAware\Common\Graph\RelationshipType;
+
+$relType = RelationshipType::withName("FOLLOWS");
+echo $relType->getName(); // Returns (string) "FOLLOWS"
+echo (string) $relType; // implements __toString method : Returns (string) "FOLLOWS"
+```
+
 ### Cypher
 
 #### Statement and StatementCollection
