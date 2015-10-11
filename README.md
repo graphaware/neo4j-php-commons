@@ -16,6 +16,22 @@ composer require graphaware/neo4j-common
 
 ### Graph
 
+#### Label
+
+Object representation of a Node Label.
+
+```php
+
+use GraphAware\Common\Graph\Label;
+
+$label = new Label("User");
+echo $label->getName(); // Returns (string) "User"
+
+// or static construction
+
+$label = Label::label("User");
+```
+
 #### Direction (Enum) : representation of a Relationship Direction
 
 ```php
