@@ -25,9 +25,7 @@ class PropertyBagUnitTest extends \PHPUnit_Framework_TestCase
     {
         $bag = new PropertyBag();
         $this->assertInstanceOf(PropertyBag::class, $bag);
-        $this->assertEquals(0, $bag->count());
         $this->assertFalse($bag->hasProperty('none'));
-        $this->assertNull($bag->get('default'));
         $this->setExpectedException(InvalidArgumentException::class);
         $bag->getProperty("cool");
     }
@@ -35,26 +33,17 @@ class PropertyBagUnitTest extends \PHPUnit_Framework_TestCase
     public function testBagWithProperties()
     {
         $bag = new PropertyBag($this->getProperties());
-        $this->assertCount(2, $bag->getAll());
-        $this->assertEquals(2, $bag->count());
+        $this->assertCount(2, $bag->getProperties());
+        $this->assertEquals(1, $bag->getProperty("id"));
     }
 
-    public function testSetAndRemove()
+    public function testSet()
     {
         $bag = new PropertyBag($this->getProperties());
-        $this->assertEquals(2, $bag->count());
+        $this->assertCount(2, $bag->getProperties());
         $bag->setProperty("age", 34);
-        $this->assertEquals(3, $bag->count());
+        $this->assertCount(3, $bag->getProperties());
         $this->assertEquals(34, $bag->getProperty("age"));
-        $bag->removeProperty("id");
-        $this->assertEquals(2, $bag->count());
-        $this->assertCount(2, $bag->getAll());
-    }
-
-    public function testIterator()
-    {
-        $bag = new PropertyBag($this->getProperties());
-        $this->assertInstanceOf(ArrayIterator::class, $bag->getIterator());
     }
 
     protected function getProperties()

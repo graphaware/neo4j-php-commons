@@ -60,23 +60,11 @@ class PropertyBag
     }
 
     /**
-     * Returns a property value if it exists, otherwise returns the given <code>$default</code> value
-     *
-     * @param string $key
-     * @param mixed $default
-     * @return mixed
-     */
-    public function get($key, $default = null)
-    {
-        return array_key_exists($key, $this->properties) ? $this->properties[$key] : $default;
-    }
-
-    /**
      * Returns all properties of this bag
      *
      * @return array
      */
-    public function getAll()
+    public function getProperties()
     {
         return $this->properties;
     }
@@ -90,35 +78,5 @@ class PropertyBag
     public function setProperty($key, $value)
     {
         $this->properties[$key] = $value;
-    }
-
-    /**
-     * Removes the property with the given <code>$key</code> from the Bag
-     *
-     * @param $key
-     */
-    public function removeProperty($key)
-    {
-        unset($this->properties[$key]);
-    }
-
-    /**
-     * Returns the number of properties in this Bag
-     *
-     * @return int
-     */
-    public function count()
-    {
-        return count($this->properties);
-    }
-
-    /**
-     * Returns an Iterator for the properties
-     *
-     * @return \ArrayIterator
-     */
-    public function getIterator()
-    {
-        return new \ArrayIterator($this->properties);
     }
 }
