@@ -27,9 +27,9 @@ class Node extends PropertyBag implements NodeInterface
     protected $labels = [];
 
     /**
-     * @var array
+     * @var \GraphAware\Common\Graph\Relationship[]
      */
-    protected $relationships;
+    protected $relationships = [];
 
     /**
      * @param int $id
@@ -42,7 +42,12 @@ class Node extends PropertyBag implements NodeInterface
         foreach ($labels as $label) {
             $this->labels[] = Label::label($label);
         }
-        $this->relationships = $relationships;
+        foreach ($relationships as $relationship) {
+            if (!$relationship instanceof RelationshipInterface) {
+                throw new \InvalidArgumentException(sprintf('Relationship must implement RelationshipInterface, "%s" given', json_encode($relationship)));
+            }
+            $this->relationships[] = $relationship;
+        }
         parent::__construct();
     }
 
@@ -95,5 +100,15 @@ class Node extends PropertyBag implements NodeInterface
     public function hasRelationships()
     {
         return !empty($this->relationships);
+    }
+
+    /**
+     * Add a relationship to the Node
+     *
+     * @param \GraphAware\Common\Graph\RelationshipInterface $relationship
+     */
+    public function addRelationship(RelationshipInterface $relationship)
+    {
+        $this->relationships[] = $relationship;
     }
 }

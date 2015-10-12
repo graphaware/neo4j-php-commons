@@ -22,4 +22,6 @@ interface NodeInterface extends PropertyBagInterface
     public function getRelationships();
 
     public function hasRelationships();
+
+    public function addRelationship(RelationshipInterface $relationship);
 }

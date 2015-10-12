@@ -15,6 +15,9 @@ use GraphAware\Common\Graph\Node;
 use GraphAware\Common\Graph\Label;
 use GraphAware\Common\Graph\NodeInterface;
 use GraphAware\Common\Graph\PropertyBagInterface;
+use GraphAware\Common\Graph\Relationship;
+use GraphAware\Common\Graph\RelationshipType;
+use \InvalidArgumentException;
 
 /**
  * @group unit
@@ -43,5 +46,20 @@ class NodeUnitTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("User", $node->getLabels()[0]);
         $this->assertEquals("Person", $node->getLabels()[1]);
         $this->assertTrue($node->hasLabel("Person"));
+    }
+
+    public function testAddRelationships()
+    {
+        $node = new Node(1);
+        $node->addRelationship(new Relationship(1, RelationshipType::withName("RELATES"), $node, $node));
+        $this->assertTrue($node->hasRelationships());
+        $this->assertCount(1, $node->getRelationships());
+    }
+
+    public function testThrowExceptionWhenNonRelsObjectsArePassedOnConstruct()
+    {
+        $rels = [1];
+        $this->setExpectedException(InvalidArgumentException::class);
+        $node = new Node(1, array(), $rels);
     }
 }
