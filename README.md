@@ -3,6 +3,7 @@
 ## Library with common utility classes for Neo4j
 
 [![Build Status](https://travis-ci.org/graphaware/neo4j-php-commons.svg)](https://travis-ci.org/graphaware/neo4j-php-commons)
+[![Latest Stable Version](https://poser.pugx.org/graphaware/neo4j-common/version)](https://packagist.org/packages/graphaware/neo4j-common)
 
 ### Installation
 
