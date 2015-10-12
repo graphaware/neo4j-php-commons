@@ -11,6 +11,9 @@
 
 namespace GraphAware\Common\Graph;
 
+/**
+ * Node representation class.
+ */
 class Node extends PropertyBag implements NodeInterface
 {
     /**
@@ -44,6 +47,8 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
+     * Returns the node internal id
+     *
      * @return int
      */
     public function getId()
@@ -52,6 +57,8 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
+     * Returns the node labels
+     *
      * @return \GraphAware\Common\Graph\Label[]
      */
     public function getLabels()
@@ -60,7 +67,9 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
-     * @param $name
+     * Returns whether or not the node has the given <code>$name</code> label
+     *
+     * @param string $name
      * @return bool
      */
     public function hasLabel($name)
@@ -69,6 +78,8 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
+     * Returns the node relationships
+     *
      * @return array
      */
     public function getRelationships()
@@ -77,6 +88,8 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
+     * Returns whether or not the node has relationships
+     *
      * @return bool
      */
     public function hasRelationships()

@@ -32,6 +32,19 @@ echo $label->getName(); // Returns (string) "User"
 $label = Label::label("User");
 ```
 
+#### Node
+
+Object Representation of a Node. The node object extends `PropertyBag`.
+
+```php
+
+use GraphAware\Commong\Graph\Node;
+
+$node = new Node(1, array("User", "Person"));
+$node->getId(); // Returns (int) 1
+$node->getLabels(); // Returns an array of \GraphAware\Common\Graph\Label objects
+```
+
 #### Direction (Enum) : representation of a Relationship Direction
 
 ```php
