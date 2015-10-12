@@ -39,11 +39,23 @@ Object Representation of a Node. The node object extends `PropertyBag`.
 
 ```php
 
-use GraphAware\Commong\Graph\Node;
+use GraphAware\Common\Graph\Node;
 
 $node = new Node(1, array("User", "Person"));
 $node->getId(); // Returns (int) 1
 $node->getLabels(); // Returns an array of \GraphAware\Common\Graph\Label objects
+```
+
+#### Relationship
+
+Object Representation of a Relationship. The relationship object extends `PropertyBag`.
+
+```php
+use GraphAware\Common\Graph\Relationship;
+
+$rel = new Relationship(1, RelationshipType::withName("RELATES"), $node, $node2);
+echo $rel->getType(); // Returns (string) "RELATES"
+var_dump($rel->isType(RelationshipType::withName("RELATES"))); // Returns (bool) true
 ```
 
 #### Direction (Enum) : representation of a Relationship Direction
