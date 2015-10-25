@@ -56,7 +56,7 @@ class Statement implements StatementInterface
      * @param string|null $tag
      * @return \GraphAware\Common\Cypher\Statement
      */
-    public static function create($query, array $parameters = array(), $tag = null, $statementType = StatementType::WRITE)
+    public static function create($query, array $parameters = array(), $tag = null, $statementType = StatementType::READ_WRITE)
     {
         if (!StatementType::isValid($statementType)) {
             throw new \InvalidArgumentException(sprintf('Value %s is invalid as statement type, possible values are %s', $statementType, json_encode(StatementType::keys())));

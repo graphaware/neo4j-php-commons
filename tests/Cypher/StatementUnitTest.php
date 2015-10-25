@@ -49,13 +49,13 @@ class StatementUnitTest extends \PHPUnit_Framework_TestCase
     public function testStatementTypeIsWriteByDefault()
     {
         $st = Statement::create($this->getQuery());
-        $this->assertEquals(StatementType::WRITE, $st->getType());
+        $this->assertEquals(StatementType::READ_WRITE, $st->getType());
     }
 
     public function testStatementCanBeDefinedAsRead()
     {
-        $st = Statement::create($this->getQuery(), array(), null, StatementType::READ);
-        $this->assertEquals(StatementType::READ, $st->getType());
+        $st = Statement::create($this->getQuery(), array(), null, StatementType::READ_ONLY);
+        $this->assertEquals(StatementType::READ_ONLY, $st->getType());
     }
 
     public function testExceptionIsThrownWhenInvalidTypeIsGiven()
