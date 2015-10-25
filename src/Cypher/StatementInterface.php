@@ -16,4 +16,6 @@ interface StatementInterface
     public function getQuery();
 
     public function getParameters();
+
+    public function getType();
 }

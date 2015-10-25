@@ -13,10 +13,13 @@ namespace GraphAware\Common\Tests\Cypher;
 
 use GraphAware\Common\Cypher\Statement;
 use GraphAware\Common\Cypher\StatementCollection;
+use GraphAware\Common\Cypher\StatementType;
+use InvalidArgumentException;
 
 /**
  * @group unit
  * @group cypher
+ * @group tck
  */
 class StatementUnitTest extends \PHPUnit_Framework_TestCase
 {
@@ -41,6 +44,24 @@ class StatementUnitTest extends \PHPUnit_Framework_TestCase
         $st = Statement::create($this->getQuery(), $this->getParams(), "test");
         $this->assertEquals("test", $st->getTag());
         $this->assertTrue($st->hasTag());
+    }
+
+    public function testStatementTypeIsWriteByDefault()
+    {
+        $st = Statement::create($this->getQuery());
+        $this->assertEquals(StatementType::WRITE, $st->getType());
+    }
+
+    public function testStatementCanBeDefinedAsRead()
+    {
+        $st = Statement::create($this->getQuery(), array(), null, StatementType::READ);
+        $this->assertEquals(StatementType::READ, $st->getType());
+    }
+
+    public function testExceptionIsThrownWhenInvalidTypeIsGiven()
+    {
+        $this->setExpectedException(InvalidArgumentException::class);
+        $st = Statement::create($this->getQuery(), $this->getParams(), null, "Invalid");
     }
 
     private function getQuery()

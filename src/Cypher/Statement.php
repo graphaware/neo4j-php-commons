@@ -29,14 +29,21 @@ class Statement implements StatementInterface
     protected $tag = null;
 
     /**
+     * @var \GraphAware\Common\Cypher\StatementType
+     */
+    protected $type;
+
+    /**
      * @param string $query
      * @param array $parameters
+     * @param StatementType
      * @param string|null $tag
      */
-    public function __construct($query, array $parameters = array(), $tag = null)
+    private function __construct($query, array $parameters = array(), $tag = null, StatementType $statementType)
     {
         $this->query = (string) $query;
         $this->parameters = $parameters;
+        $this->type = $statementType;
         if (null !== $tag) {
             $this->tag = (string) $tag;
         }
@@ -45,12 +52,17 @@ class Statement implements StatementInterface
     /**
      * @param string $query
      * @param array $parameters
+     * @param string $statementType
      * @param string|null $tag
      * @return \GraphAware\Common\Cypher\Statement
      */
-    public static function create($query, array $parameters = array(), $tag = null)
+    public static function create($query, array $parameters = array(), $tag = null, $statementType = StatementType::WRITE)
     {
-        return new self($query, $parameters, $tag);
+        if (!StatementType::isValid($statementType)) {
+            throw new \InvalidArgumentException(sprintf('Value %s is invalid as statement type, possible values are %s', $statementType, json_encode(StatementType::keys())));
+        }
+        $type = new StatementType($statementType);
+        return new self($query, $parameters, $tag, $type);
     }
 
     /**
@@ -83,5 +95,29 @@ class Statement implements StatementInterface
     public function hasTag()
     {
         return null !== $this->tag;
+    }
+
+    /**
+     * @return \GraphAware\Common\Cypher\StatementType
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isWriteType()
+    {
+        return $this->type === StatementType::WRITE;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isReadType()
+    {
+        return $this->type === StatementType::READ;
     }
 }
