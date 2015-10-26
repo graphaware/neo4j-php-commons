@@ -15,9 +15,9 @@ use MyCLabs\Enum\Enum;
 
 final class TransactionState extends Enum
 {
-    const TRANSACTION_OPEN = "TRANSACTION_OPEN";
+    const OPEN = "TRANSACTION_OPEN";
 
-    const TRANSACTION_ROLLED_BACK = "TRANSACTION_ROLLED_BACK";
+    const ROLLED_BACK = "TRANSACTION_ROLLED_BACK";
 
-    const TRANSACTION_COMMITED = "TRANSACTION_COMMITED";
+    const COMMITED = "TRANSACTION_COMMITED";
 }
