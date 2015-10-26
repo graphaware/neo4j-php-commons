@@ -14,4 +14,6 @@ namespace GraphAware\Common\Result;
 interface SummaryInterface
 {
     public function statement();
+
+    public function updateStatistics();
 }
