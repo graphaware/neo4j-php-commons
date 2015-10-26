@@ -11,8 +11,14 @@
 
 namespace GraphAware\Common\Result;
 
+use GraphAware\Common\Cypher\StatementInterface;
+
 interface ResultInterface
 {
+    public function __construct(StatementInterface $statement);
+
+    public function addRecord(RecordInterface $record);
+
     public function summarize();
 
     public function updateStatistics();
