@@ -80,7 +80,7 @@ class StatementStatistics implements StatementStatisticsInterface
     {
         $keys = [
             'contains_updates', 'nodes_created', 'nodes_deleted', 'properties_set', 'labels_added', 'labels_removed',
-            'indexes_added', 'indexes_removed', 'constraints_added', 'constraints_removed'
+            'indexes_added', 'indexes_removed', 'constraints_added', 'constraints_removed', 'relationships_deleted'
         ];
 
         foreach ($statistics as $key => $value) {
