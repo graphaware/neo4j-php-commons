@@ -11,11 +11,15 @@
 
 namespace GraphAware\Common\Result;
 
-interface SummaryInterface
+interface RecordViewInterface
 {
-    public function statement();
+    public function keys();
 
-    public function updateStatistics();
+    public function hasValues();
 
-    public function notifications();
+    public function value($key);
+
+    public function getValueByIndex($index);
+
+    public function record();
 }

@@ -11,11 +11,15 @@
 
 namespace GraphAware\Common\Result;
 
-interface SummaryInterface
+interface NotificationInterface
 {
-    public function statement();
+    public function code();
 
-    public function updateStatistics();
+    public function title();
 
-    public function notifications();
+    public function description();
+
+    public function position();
+
+    public function __toString();
 }

@@ -11,11 +11,13 @@
 
 namespace GraphAware\Common\Result;
 
-interface SummaryInterface
+interface InputPositionInterface
 {
-    public function statement();
+    public function offset();
 
-    public function updateStatistics();
+    public function line();
 
-    public function notifications();
+    public function column();
+
+    public function __toString();
 }
