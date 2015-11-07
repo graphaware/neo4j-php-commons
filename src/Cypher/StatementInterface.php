@@ -13,9 +13,9 @@ namespace GraphAware\Common\Cypher;
 
 interface StatementInterface
 {
-    public function getQuery();
+    public function text();
 
-    public function getParameters();
+    public function parameters();
 
-    public function getType();
+    public function type();
 }

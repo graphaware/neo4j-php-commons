@@ -16,7 +16,7 @@ class Statement implements StatementInterface
     /**
      * @var string
      */
-    protected $query;
+    protected $text;
 
     /**
      * @var array
@@ -34,14 +34,14 @@ class Statement implements StatementInterface
     protected $type;
 
     /**
-     * @param string $query
+     * @param string $text
      * @param array $parameters
      * @param StatementType
      * @param string|null $tag
      */
-    private function __construct($query, array $parameters = array(), $tag = null, StatementType $statementType)
+    private function __construct($text, array $parameters = array(), $tag = null, StatementType $statementType)
     {
-        $this->query = (string) $query;
+        $this->query = (string) $text;
         $this->parameters = $parameters;
         $this->type = $statementType;
         if (null !== $tag) {
@@ -50,25 +50,25 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @param string $query
+     * @param string $text
      * @param array $parameters
      * @param string $statementType
      * @param string|null $tag
      * @return \GraphAware\Common\Cypher\Statement
      */
-    public static function create($query, array $parameters = array(), $tag = null, $statementType = StatementType::READ_WRITE)
+    public static function create($text, array $parameters = array(), $tag = null, $statementType = StatementType::READ_WRITE)
     {
         if (!StatementType::isValid($statementType)) {
             throw new \InvalidArgumentException(sprintf('Value %s is invalid as statement type, possible values are %s', $statementType, json_encode(StatementType::keys())));
         }
         $type = new StatementType($statementType);
-        return new self($query, $parameters, $tag, $type);
+        return new self($text, $parameters, $tag, $type);
     }
 
     /**
      * @return string
      */
-    public function getQuery()
+    public function text()
     {
         return $this->query;
     }
@@ -76,7 +76,7 @@ class Statement implements StatementInterface
     /**
      * @return array
      */
-    public function getParameters()
+    public function parameters()
     {
         return $this->parameters;
     }
@@ -100,7 +100,7 @@ class Statement implements StatementInterface
     /**
      * @return \GraphAware\Common\Cypher\StatementType
      */
-    public function getType()
+    public function type()
     {
         return $this->type;
     }

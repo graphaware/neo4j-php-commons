@@ -25,46 +25,46 @@ class StatementUnitTest extends \PHPUnit_Framework_TestCase
 {
     public function testStatementInstance()
     {
-        $q = $this->getQuery();
+        $q = $this->text();
         $st = Statement::create($q);
         $this->assertInstanceOf(Statement::class, $st);
-        $this->assertEquals($q, $st->getQuery());
-        $this->assertCount(0, $st->getParameters());
+        $this->assertEquals($q, $st->text());
+        $this->assertCount(0, $st->parameters());
         $this->assertFalse($st->hasTag());
     }
 
     public function testStatementWithParams()
     {
-        $st = Statement::create($this->getQuery(), $this->getParams());
-        $this->assertCount(1, $st->getParameters());
+        $st = Statement::create($this->text(), $this->getParams());
+        $this->assertCount(1, $st->parameters());
     }
 
     public function testStatementTagged()
     {
-        $st = Statement::create($this->getQuery(), $this->getParams(), "test");
+        $st = Statement::create($this->text(), $this->getParams(), "test");
         $this->assertEquals("test", $st->getTag());
         $this->assertTrue($st->hasTag());
     }
 
     public function testStatementTypeIsWriteByDefault()
     {
-        $st = Statement::create($this->getQuery());
-        $this->assertEquals(StatementType::READ_WRITE, $st->getType());
+        $st = Statement::create($this->text());
+        $this->assertEquals(StatementType::READ_WRITE, $st->type());
     }
 
     public function testStatementCanBeDefinedAsRead()
     {
-        $st = Statement::create($this->getQuery(), array(), null, StatementType::READ_ONLY);
-        $this->assertEquals(StatementType::READ_ONLY, $st->getType());
+        $st = Statement::create($this->text(), array(), null, StatementType::READ_ONLY);
+        $this->assertEquals(StatementType::READ_ONLY, $st->type());
     }
 
     public function testExceptionIsThrownWhenInvalidTypeIsGiven()
     {
         $this->setExpectedException(InvalidArgumentException::class);
-        $st = Statement::create($this->getQuery(), $this->getParams(), null, "Invalid");
+        Statement::create($this->text(), $this->getParams(), null, "Invalid");
     }
 
-    private function getQuery()
+    private function text()
     {
         $q = "MATCH (n) RETURN count(n)";
 
