@@ -71,10 +71,12 @@ class StatementUnitTest extends \PHPUnit_Framework_TestCase
         $st = $statement->withText($newText);
         $this->assertEquals($newText, $st->text());
         $this->assertEquals($this->text(), $statement->text());
-        $st2 = $st->withParameters(['name' => 'johndoe']);
+        $st2 = $st->withParameters(['name' => 'johndoe', 'company' => 'GraphAware']);
         $this->assertCount(0, $st->parameters());
-        $this->assertCount(1, $st2->parameters());
+        $this->assertCount(2, $st2->parameters());
         $this->assertEquals($newText, $st2->text());
+        $st3 = $st2->withUpdatedParameters(['name' => 'johndoe', 'company' => 'GraphAware Limited']);
+        $this->assertEquals('GraphAware Limited', $st3->parameters()['company']);
     }
 
     private function text()

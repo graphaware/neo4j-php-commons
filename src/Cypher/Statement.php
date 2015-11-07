@@ -100,6 +100,17 @@ class Statement implements StatementInterface
     }
 
     /**
+     * @param array $parameters
+     * @return \GraphAware\Common\Cypher\Statement
+     */
+    public function withUpdatedParameters(array $parameters)
+    {
+        $parameters = array_merge($this->parameters, $parameters);
+
+        return new self($this->text, $parameters, $this->tag, $this->type);
+    }
+
+    /**
      * @return null|string
      */
     public function getTag()

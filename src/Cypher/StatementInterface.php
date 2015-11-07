@@ -22,4 +22,6 @@ interface StatementInterface
     public function withText($text);
 
     public function withParameters(array $parameters);
+
+    public function withUpdatedParameters(array $parameters);
 }
