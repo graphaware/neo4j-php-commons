@@ -18,15 +18,15 @@ interface ResultCursorInterface
 {
     public function __construct(StatementInterface $statement);
 
+    public function statement();
+
     public function addRecord(RecordViewInterface $record);
 
     public function summarize();
 
-    public function updateStatistics();
-
-    public function statementType();
-
     public function hasSummary();
+
+    public function records();
 
     public function isOpen();
 

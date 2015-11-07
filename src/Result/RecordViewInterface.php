@@ -19,7 +19,9 @@ interface RecordViewInterface
 
     public function value($key);
 
-    public function getValueByIndex($index);
+    public function values();
+
+    public function valueByIndex($index);
 
     public function record();
 }

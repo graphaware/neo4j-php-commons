@@ -129,7 +129,7 @@ class Statement implements StatementInterface
     /**
      * @return \GraphAware\Common\Cypher\StatementType
      */
-    public function type()
+    public function statementType()
     {
         return $this->type;
     }
