@@ -64,6 +64,19 @@ class StatementUnitTest extends \PHPUnit_Framework_TestCase
         Statement::create($this->text(), $this->getParams(), null, "Invalid");
     }
 
+    public function testImmutableStatementAPI()
+    {
+        $statement = Statement::create($this->text());
+        $newText = 'CREATE (n:Node) RETURN n';
+        $st = $statement->withText($newText);
+        $this->assertEquals($newText, $st->text());
+        $this->assertEquals($this->text(), $statement->text());
+        $st2 = $st->withParameters(['name' => 'johndoe']);
+        $this->assertCount(0, $st->parameters());
+        $this->assertCount(1, $st2->parameters());
+        $this->assertEquals($newText, $st2->text());
+    }
+
     private function text()
     {
         $q = "MATCH (n) RETURN count(n)";

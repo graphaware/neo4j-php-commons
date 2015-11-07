@@ -36,12 +36,12 @@ class Statement implements StatementInterface
     /**
      * @param string $text
      * @param array $parameters
-     * @param StatementType
      * @param string|null $tag
+     * @param StatementType
      */
     private function __construct($text, array $parameters = array(), $tag = null, StatementType $statementType)
     {
-        $this->query = (string) $text;
+        $this->text = (string) $text;
         $this->parameters = $parameters;
         $this->type = $statementType;
         if (null !== $tag) {
@@ -52,8 +52,8 @@ class Statement implements StatementInterface
     /**
      * @param string $text
      * @param array $parameters
-     * @param string $statementType
      * @param string|null $tag
+     * @param string $statementType
      * @return \GraphAware\Common\Cypher\Statement
      */
     public static function create($text, array $parameters = array(), $tag = null, $statementType = StatementType::READ_WRITE)
@@ -70,7 +70,7 @@ class Statement implements StatementInterface
      */
     public function text()
     {
-        return $this->query;
+        return $this->text;
     }
 
     /**
@@ -79,6 +79,24 @@ class Statement implements StatementInterface
     public function parameters()
     {
         return $this->parameters;
+    }
+
+    /**
+     * @param string $text
+     * @return \GraphAware\Common\Cypher\Statement
+     */
+    public function withText($text)
+    {
+        return new self($text, $this->parameters, $this->tag, $this->type);
+    }
+
+    /**
+     * @param array $parameters
+     * @return \GraphAware\Common\Cypher\Statement
+     */
+    public function withParameters(array $parameters)
+    {
+        return new self($this->text, $parameters, $this->tag, $this->type);
     }
 
     /**
@@ -110,7 +128,7 @@ class Statement implements StatementInterface
      */
     public function isWriteType()
     {
-        return $this->type === StatementType::WRITE;
+        return $this->type === StatementType::READ_WRITE;
     }
 
     /**
@@ -118,6 +136,6 @@ class Statement implements StatementInterface
      */
     public function isReadType()
     {
-        return $this->type === StatementType::READ;
+        return $this->type === StatementType::READ_ONLY;
     }
 }

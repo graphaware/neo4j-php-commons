@@ -18,4 +18,8 @@ interface StatementInterface
     public function parameters();
 
     public function type();
+
+    public function withText($text);
+
+    public function withParameters(array $parameters);
 }
