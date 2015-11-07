@@ -11,8 +11,23 @@
 
 namespace Result;
 
+use GraphAware\Common\Cypher\StatementInterface;
+use GraphAware\Common\Result\RecordViewInterface;
+
 interface ResultCursorInterface
 {
+    public function __construct(StatementInterface $statement);
+
+    public function addRecord(RecordViewInterface $record);
+
+    public function summarize();
+
+    public function updateStatistics();
+
+    public function statementType();
+
+    public function hasSummary();
+
     public function isOpen();
 
     public function close();
