@@ -22,24 +22,4 @@ final class StatementType extends Enum
     const WRITE_ONLY = "STATEMENT_WRITE_ONLY";
 
     const SCHEMA_WRITE = "STATEMENT_SCHEMA_WRITE";
-
-    public static function AS_READ_ONLY()
-    {
-        return new StatementType(StatementType::READ_ONLY);
-    }
-
-    public static function AS_READ_WRITE()
-    {
-        return new StatementType(StatementType::READ_WRITE);
-    }
-
-    public static function AS_WRITE_ONLY()
-    {
-        return new StatementType(StatementType::WRITE_ONLY);
-    }
-
-    public static function AS_SCHEMA_WRITE()
-    {
-        return new StatementType(StatementType::SCHEMA_WRITE);
-    }
 }

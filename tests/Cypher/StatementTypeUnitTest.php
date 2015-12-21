@@ -25,14 +25,4 @@ class StatementTypeUnitTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals("STATEMENT_READ_WRITE", StatementType::READ_WRITE);
         $this->assertEquals("STATEMENT_READ_ONLY", StatementType::READ_ONLY);
     }
-
-    public function testStatementTypeObjects()
-    {
-        $this->assertInstanceOf(StatementType::class, StatementType::AS_WRITE_ONLY());
-        $this->assertEquals("STATEMENT_WRITE_ONLY", StatementType::AS_WRITE_ONLY());
-        $this->assertInstanceOf(StatementType::class, StatementType::AS_READ_ONLY());
-        $this->assertEquals("STATEMENT_READ_ONLY", StatementType::AS_READ_ONLY());
-        $this->assertEquals(StatementType::READ_ONLY, StatementType::AS_READ_ONLY());
-        $this->assertEquals(StatementType::SCHEMA_WRITE, StatementType::AS_SCHEMA_WRITE());
-    }
 }

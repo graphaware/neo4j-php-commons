@@ -17,8 +17,6 @@ interface StatementInterface
 
     public function parameters();
 
-    public function statementType();
-
     public function withText($text);
 
     public function withParameters(array $parameters);

@@ -22,4 +22,6 @@ interface ResultSummaryInterface
     public function updateStatistics();
 
     public function notifications();
+
+    public function statementType();
 }

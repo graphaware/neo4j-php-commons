@@ -133,20 +133,4 @@ class Statement implements StatementInterface
     {
         return $this->type;
     }
-
-    /**
-     * @return bool
-     */
-    public function isWriteType()
-    {
-        return $this->type === StatementType::READ_WRITE;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isReadType()
-    {
-        return $this->type === StatementType::READ_ONLY;
-    }
 }
