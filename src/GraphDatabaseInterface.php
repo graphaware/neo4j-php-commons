@@ -9,11 +9,11 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Common\Driver;
+namespace GraphAware\Common;
 
-interface DriverInterface
+use GraphAware\Common\Driver\ConfigInterface;
+
+interface GraphDatabaseInterface
 {
-    function __construct($uri, Protocol $protocol);
-
-    function session();
+    function driver($uri, ConfigInterface $config = null);
 }
