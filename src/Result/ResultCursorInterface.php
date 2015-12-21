@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Result;
+namespace GraphAware\Common\Result;
 
 use GraphAware\Common\Cypher\StatementInterface;
 use GraphAware\Common\Result\RecordViewInterface;
