@@ -9,11 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Common;
+namespace GraphAware\Common\Type;
 
-use GraphAware\Common\Driver\ConfigInterface;
-
-interface GraphDatabaseInterface
+interface RelationshipInterface extends IdentityInterface
 {
-    static function driver($uri, ConfigInterface $config = null);
+    /**
+     * @return string
+     */
+    function type();
+
+    /**
+     * @param string $type
+     * @return bool
+     */
+    function hasType($type);
 }

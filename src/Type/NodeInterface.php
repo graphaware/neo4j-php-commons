@@ -9,11 +9,18 @@
  * file that was distributed with this source code.
  */
 
-namespace GraphAware\Common;
+namespace GraphAware\Common\Type;
 
-use GraphAware\Common\Driver\ConfigInterface;
-
-interface GraphDatabaseInterface
+interface NodeInterface extends IdentityInterface
 {
-    static function driver($uri, ConfigInterface $config = null);
+    /**
+     * @return string[]
+     */
+    function labels();
+
+    /**
+     * @param string $label
+     * @return bool
+     */
+    function hasLabel($label);
 }
