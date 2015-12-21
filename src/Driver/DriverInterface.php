@@ -13,7 +13,5 @@ namespace GraphAware\Common\Driver;
 
 interface DriverInterface
 {
-    function __construct($uri, Protocol $protocol);
-
     function session();
 }
