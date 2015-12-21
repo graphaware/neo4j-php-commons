@@ -14,7 +14,7 @@ namespace GraphAware\Common\Result;
 use GraphAware\Common\Cypher\StatementInterface;
 use GraphAware\Common\Result\RecordViewInterface;
 
-interface ResultCursorInterface
+interface RecordCursorInterface
 {
     public function __construct(StatementInterface $statement);
 

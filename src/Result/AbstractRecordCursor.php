@@ -12,9 +12,9 @@
 namespace GraphAware\Common\Result;
 
 use GraphAware\Common\Cypher\StatementInterface;
-use GraphAware\Common\Result\ResultCursorInterface;
+use GraphAware\Common\Result\RecordCursorInterface;
 
-abstract class AbstractResultCursor implements ResultCursorInterface
+abstract class AbstractRecordCursor implements RecordCursorInterface
 {
     /**
      * @var \GraphAware\Common\Cypher\StatementInterface
