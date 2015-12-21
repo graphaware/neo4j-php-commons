@@ -20,8 +20,6 @@ interface RecordCursorInterface
 
     public function statement();
 
-    public function addRecord(RecordViewInterface $record);
-
     public function summarize();
 
     public function hasSummary();
