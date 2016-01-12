@@ -11,12 +11,19 @@
 
 namespace GraphAware\Common\Result;
 
-class ResultCollection implements \ArrayAccess
+class ResultCollection implements \Iterator
 {
+    protected $position;
+
     /**
      * @var \GraphAware\Common\Result\RecordCursorInterface[]
      */
     protected $results = [];
+
+    public function __construct()
+    {
+        $this->position = 0;
+    }
 
     /**
      * Add a Result <code>RecordCursorInterface</code> to the ResultCollection.
@@ -53,25 +60,25 @@ class ResultCollection implements \ArrayAccess
         return count($this->results);
     }
 
-    public function offsetExists($offset)
+    function rewind()
     {
-        return isset($this->results[$offset]);
+        $this->position = 0;
     }
 
-    public function offsetGet($offset)
-    {
-        return isset($this->results[$offset]) ? $this->results[$offset] : null;
+    function current() {
+        return $this->results[$this->position];
     }
 
-    public function offsetSet($offset, $value)
-    {
-        // records can only be added via the add() method
+    function key() {
+        return $this->position;
     }
 
-    public function offsetUnset($offset)
-    {
-        // This class doesn't support removal of objects
+    function next() {
+        ++$this->position;
     }
 
+    function valid() {
+        return isset($this->results[$this->position]);
+    }
 
 }
