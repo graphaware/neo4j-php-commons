@@ -5,6 +5,7 @@
         "This file is @generated automatically"
     ],
     "hash": "fae9ab6dc36daf363c9f368263352fd4",
+    "content-hash": "90ddf6fb959852077ebe105c9e170fa5",
     "packages": [
         {
             "name": "myclabs/php-enum",

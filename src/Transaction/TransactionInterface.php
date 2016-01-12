@@ -11,8 +11,6 @@
 
 namespace GraphAware\Common\Transaction;
 
-use GraphAware\Common\Cypher\Statement;
-
 interface TransactionInterface
 {
     public function isOpen();
@@ -21,11 +19,11 @@ interface TransactionInterface
 
     public function isRolledBack();
 
-    public function getStatus();
+    public function status();
 
-    public function run(Statement $statement);
-
-    public function success();
+    public function commit();
 
     public function rollback();
+
+    public function push($statement, array $parameters = array(), $tag = null);
 }
