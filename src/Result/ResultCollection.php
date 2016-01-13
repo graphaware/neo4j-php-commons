@@ -50,6 +50,11 @@ class ResultCollection implements \Iterator
         }
     }
 
+    public function results()
+    {
+        return $this->results;
+    }
+
     /**
      * Returns the size of the results of this ResultCollection.
      *
