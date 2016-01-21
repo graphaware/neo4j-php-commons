@@ -13,26 +13,29 @@ namespace GraphAware\Common\Result;
 
 class ResultCollection implements \Iterator
 {
-    protected $position;
+    protected $position = 0;
 
     /**
      * @var \GraphAware\Common\Result\RecordCursorInterface[]
      */
     protected $results = [];
 
-    public function __construct()
-    {
-        $this->position = 0;
-    }
+    /**
+     * @var array
+     */
+    protected $tagMap = [];
 
     /**
      * Add a Result <code>RecordCursorInterface</code> to the ResultCollection.
      *
      * @param \GraphAware\Common\Result\RecordCursorInterface $recordCursor
      */
-    public function add(RecordCursorInterface $recordCursor)
+    public function add(RecordCursorInterface $recordCursor, $tag = null)
     {
         $this->results[] = $recordCursor;
+        if (null !== $tag) {
+            $this->tagMap[$tag] = count($this->results) - 1;
+        }
     }
 
     /**
@@ -43,13 +46,25 @@ class ResultCollection implements \Iterator
      */
     public function get($tag)
     {
-        foreach ($this->results as $result) {
-            if ($result->statement()->getTag() === $tag) {
-                return $result;
-            }
+        if (array_key_exists($tag, $this->tagMap)) {
+            return $this->results[$this->tagMap[$tag]];
         }
+
+        throw new \InvalidArgumentException(sprintf('This result collection does not contains a Result for tag "%s"', $tag));
     }
 
+    /**
+     * @param $tag
+     * @return bool
+     */
+    public function contains($tag)
+    {
+        return array_key_exists($tag, $this->tagMap);
+    }
+
+    /**
+     * @return \GraphAware\Common\Result\RecordCursorInterface[]
+     */
     public function results()
     {
         return $this->results;
