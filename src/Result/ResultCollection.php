@@ -35,6 +35,8 @@ class ResultCollection implements \Iterator
         $this->results[] = $recordCursor;
         if (null !== $tag) {
             $this->tagMap[$tag] = count($this->results) - 1;
+        } elseif ($recordCursor->statement()->hasTag()) {
+            $this->tagMap[$recordCursor->statement()->getTag()] = count($this->results()) -1;
         }
     }
 
@@ -42,12 +44,18 @@ class ResultCollection implements \Iterator
      * Returns a RecordCursorInterface (Result) for the given tag (tag passed along with the Cypher statement).
      *
      * @param string $tag
+     * @param mixed $default
+     *
      * @return \GraphAware\Common\Result\RecordCursorInterface|null
      */
-    public function get($tag)
+    public function get($tag, $default = null)
     {
         if (array_key_exists($tag, $this->tagMap)) {
             return $this->results[$this->tagMap[$tag]];
+        }
+
+        if (2 === func_num_args()) {
+            return $default;
         }
 
         throw new \InvalidArgumentException(sprintf('This result collection does not contains a Result for tag "%s"', $tag));

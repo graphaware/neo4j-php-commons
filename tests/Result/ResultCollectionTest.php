@@ -24,7 +24,7 @@ class ResultCollectionTest extends \PHPUnit_Framework_TestCase
         $coll->add($result);
 
         $this->assertEquals(1, $coll->size());
-        $this->assertEquals(null, $coll->get('non existing tag'));
+        $this->assertEquals(null, $coll->get('non existing tag', null));
     }
 
     public function testCollectionParseTags()

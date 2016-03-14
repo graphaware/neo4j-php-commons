@@ -11,7 +11,7 @@
 
 namespace GraphAware\Common\Type;
 
-interface RelationshipInterface extends IdentityInterface
+interface RelationshipInterface extends Relationship
 {
     /**
      * @return string
@@ -20,6 +20,7 @@ interface RelationshipInterface extends IdentityInterface
 
     /**
      * @param string $type
+     *
      * @return bool
      */
     function hasType($type);

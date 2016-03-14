@@ -11,6 +11,16 @@
 
 namespace GraphAware\Common\Type;
 
-interface NodeInterface extends Node
+interface Node extends MapAccessor
 {
+    /**
+     * @return string[]
+     */
+    function labels();
+
+    /**
+     * @param string $label
+     * @return bool
+     */
+    function hasLabel($label);
 }

@@ -11,6 +11,16 @@
 
 namespace GraphAware\Common\Type;
 
-interface NodeInterface extends Node
+interface Relationship extends MapAccessor
 {
+    /**
+     * @return string
+     */
+    function type();
+
+    /**
+     * @param string $type
+     * @return bool
+     */
+    function hasType($type);
 }
