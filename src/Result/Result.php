@@ -11,4 +11,6 @@
 
 namespace GraphAware\Common\Result;
 
-interface Result extends RecordCursorInterface{}
+interface Result extends StatementResult
+{
+}
