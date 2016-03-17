@@ -18,7 +18,7 @@ interface StatementResult
     public function __construct(StatementInterface $statement);
 
     /**
-     * @return \GraphAware\Common\Cypher\Statement
+     * @return \GraphAware\Common\Cypher\StatementInterface
      */
     public function statement();
 
@@ -33,7 +33,7 @@ interface StatementResult
     public function hasSummary();
 
     /**
-     * @return \GraphAware\Common\Result\RecordViewInterface[]
+     * @return \GraphAware\Common\Result\Record[]
      */
     public function records();
 
@@ -48,31 +48,12 @@ interface StatementResult
     public function close();
 
     /**
-     * @return \GraphAware\Common\Result\RecordViewInterface
-     */
-    public function next();
-
-    /**
      * @return int
      */
-    public function position();
+    public function size();
 
     /**
-     * @void
+     * @return null|\GraphAware\Common\Result\Record
      */
-    public function skip();
-
-    /**
-     * @return boolean
-     */
-    public function isLast();
-
-    /**
-     * @return \GraphAware\Common\Result\RecordViewInterface
-     */
-    public function first();
-
-    public function single();
-
-    public function last();
+    public function firstRecord();
 }

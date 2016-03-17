@@ -91,6 +91,14 @@ class StatementStatistics implements StatementStatisticsInterface
             $k = $this->toCamelCase($key);
             $this->$k = $value;
         }
+
+        if (null === $this->containsUpdates()) {
+            foreach ($statistics as $stat => $value) {
+                if ($stat !== 'contains_updates' && $value > 0) {
+                    $this->containsUpdates = true;
+                }
+            }
+        }
     }
 
     /**
