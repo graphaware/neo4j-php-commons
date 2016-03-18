@@ -92,11 +92,9 @@ class StatementStatistics implements StatementStatisticsInterface
             $this->$k = $value;
         }
 
-        if (null === $this->containsUpdates()) {
-            foreach ($statistics as $stat => $value) {
-                if ($stat !== 'contains_updates' && $value > 0) {
-                    $this->containsUpdates = true;
-                }
+        foreach ($statistics as $stat => $value) {
+            if ($stat !== 'contains_updates' && $value > 0) {
+                $this->containsUpdates = true;
             }
         }
     }

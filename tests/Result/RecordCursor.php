@@ -16,4 +16,15 @@ class RecordCursor extends AbstractRecordCursor
         // TODO: Implement skip() method.
     }
 
+    public function size()
+    {
+        // TODO: Implement size() method.
+    }
+
+    public function firstRecord()
+    {
+        // TODO: Implement firstRecord() method.
+    }
+
+
 }

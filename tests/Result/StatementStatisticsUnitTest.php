@@ -47,4 +47,13 @@ class StatementStatisticsUnitTest extends \PHPUnit_Framework_TestCase
         $this->setExpectedException(InvalidArgumentException::class);
         $stats = new StatementStatistics(['inv' => 10]);
     }
+
+    public function testStatsReturnsUpdatesTrueIfItHappensButNotProvided()
+    {
+        $stats = [
+            'nodes_created' => 1
+        ];
+        $o = new StatementStatistics($stats);
+        $this->assertTrue($o->containsUpdates());
+    }
 }

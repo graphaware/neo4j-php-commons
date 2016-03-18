@@ -12,7 +12,6 @@
 namespace GraphAware\Common\Result;
 
 use GraphAware\Common\Cypher\StatementInterface;
-use GraphAware\Common\Result\RecordCursorInterface;
 
 abstract class AbstractRecordCursor implements RecordCursorInterface
 {
