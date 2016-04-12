@@ -45,6 +45,15 @@ interface Record
     public function get($key);
 
     /**
+     * Returns whether or not this Record contains a value with the given key
+     *
+     * @param string $key
+     *
+     * @return bool
+     */
+    public function hasValue($key);
+
+    /**
      * Same as <code>value($key)</code> but will return the value as a <code>NodeInterface</code> object if the type of the
      * value is a <code>Node</code>, throws an exception otherwise.
      *
