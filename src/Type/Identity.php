@@ -11,7 +11,12 @@
 
 namespace GraphAware\Common\Type;
 
-interface IdentityInterface
+interface Identity
 {
+    /**
+     * Returns the identiy identifier of the object
+     *
+     * @return mixed
+     */
     function identity();
 }

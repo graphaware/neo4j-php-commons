@@ -11,17 +11,4 @@
 
 namespace GraphAware\Common\Type;
 
-interface RelationshipInterface extends Relationship
-{
-    /**
-     * @return string
-     */
-    function type();
-
-    /**
-     * @param string $type
-     *
-     * @return bool
-     */
-    function hasType($type);
-}
+interface RelationshipInterface extends Relationship{}

@@ -11,15 +11,20 @@
 
 namespace GraphAware\Common\Type;
 
-interface Relationship extends MapAccessor
+interface Relationship extends MapAccessor, Identity
 {
     /**
+     * Returns the type of the relationship
+     *
      * @return string
      */
     function type();
 
     /**
+     * Returns whether or not the relationship has the given type
+     *
      * @param string $type
+     *
      * @return bool
      */
     function hasType($type);

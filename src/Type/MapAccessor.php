@@ -39,6 +39,22 @@ interface MapAccessor
     public function get($key);
 
     /**
+     * Returns whether or not the property map contains the given key
+     *
+     * @return bool
+     */
+    public function hasValue($key);
+
+    /**
+     * Returns the value for the given key, throws an exception if the key doesn't exist or returns the default given value if passed
+     *
+     * @return mixed
+     *
+     * @throws \InvalidArgumentException
+     */
+    public function value($key, $default = null);
+
+    /**
      * Retrieve all values of the underlying collection
      *
      * @return array

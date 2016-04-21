@@ -11,6 +11,4 @@
 
 namespace GraphAware\Common\Type;
 
-interface NodeInterface extends Node
-{
-}
+interface NodeInterface extends Node{}
