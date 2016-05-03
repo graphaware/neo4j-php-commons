@@ -109,4 +109,17 @@ class ResultCollection implements \Iterator
         return isset($this->results[$this->position]);
     }
 
+    /**
+     * @return \GraphAware\Common\Result\CombinedStatistics
+     */
+    public function updateStatistics()
+    {
+        $combinedStats = new CombinedStatistics();
+        foreach ($this->results as $result) {
+            $combinedStats->mergeStats($result->summarize()->updateStatistics());
+        }
+
+        return $combinedStats;
+    }
+
 }
