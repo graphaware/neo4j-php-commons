@@ -10,7 +10,6 @@
  */
 namespace GraphAware\Common\Driver;
 
-use GraphAware\Common\Result\AbstractRecordCursor;
 use GraphAware\Common\Transaction\TransactionInterface;
 use GraphAware\Neo4j\Client\HttpDriver\Pipeline;
 
@@ -21,7 +20,7 @@ interface SessionInterface
      * @param array       $parameters
      * @param null|string $tag
      *
-     * @return AbstractRecordCursor
+     * @return \GraphAware\Common\Result\Result
      */
     public function run($statement, array $parameters = [], $tag = null);
 
