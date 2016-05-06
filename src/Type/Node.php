@@ -1,5 +1,4 @@
 <?php
-
 /**
  * This file is part of the GraphAware Neo4j Common package.
  *
@@ -10,21 +9,18 @@
  */
 namespace GraphAware\Common\Type;
 
-interface RelationshipInterface extends MapAccessorInterface, IdentityInterface
+interface Node extends MapAccessor, Identity
 {
     /**
-     * Returns the type of the relationship.
+     * Returns all labels of the node.
      *
-     * @return string
+     * @return string[]
      */
-    public function type();
-
+    public function labels();
     /**
-     * Returns whether or not the relationship has the given type.
-     *
-     * @param string $type
+     * @param string $label
      *
      * @return bool
      */
-    public function hasType($type);
+    public function hasLabel($label);
 }

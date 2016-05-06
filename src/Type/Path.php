@@ -10,19 +10,19 @@
  */
 namespace GraphAware\Common\Type;
 
-interface PathInterface
+interface Path
 {
     /**
      * Returns the start node of the path.
      *
-     * @return NodeInterface
+     * @return Node
      */
     public function start();
 
     /**
      * Returns the end node of the path.
      *
-     * @return NodeInterface
+     * @return Node
      */
     public function end();
 
@@ -36,32 +36,32 @@ interface PathInterface
     /**
      * Returns whether or not the path contains the given node.
      *
-     * @param NodeInterface $node
+     * @param Node $node
      *
      * @return bool
      */
-    public function containsNode(NodeInterface $node);
+    public function containsNode(Node $node);
 
     /**
      * Returns whether or not the path contains the given relationship.
      *
-     * @param RelationshipInterface $relationship
+     * @param Relationship $relationship
      *
      * @return bool
      */
-    public function containsRelationship(RelationshipInterface $relationship);
+    public function containsRelationship(Relationship $relationship);
 
     /**
      * Returns the nodes in the path, nodes will appear in the same order as they appear in the path.
      *
-     * @return NodeInterface[]
+     * @return Node[]
      */
     public function nodes();
 
     /**
      * Returns the relationships in the path, relationships will appear in the same order as they appear in the path.
      *
-     * @return RelationshipInterface[]
+     * @return Relationship[]
      */
     public function relationships();
 }
