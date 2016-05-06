@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Graph;
 
 /**
@@ -22,39 +21,41 @@ class Node extends PropertyBag implements NodeInterface
     protected $id;
 
     /**
-     * @var \GraphAware\Common\Graph\Label[]
+     * @var Label[]
      */
     protected $labels = [];
 
     /**
-     * @var \GraphAware\Common\Graph\Relationship[]
+     * @var RelationshipInterface[]
      */
     protected $relationships = [];
 
     /**
-     * @param int $id
+     * @param int   $id
      * @param array $labels
      * @param array $relationships
      */
     public function __construct($id, array $labels = array(), array $relationships = array())
     {
         $this->id = $id;
+
         foreach ($labels as $label) {
-            $this->labels[] = Label::label($label);
+            $this->labels[] = new Label($label);
         }
+
         foreach ($relationships as $relationship) {
             if (!$relationship instanceof RelationshipInterface) {
                 throw new \InvalidArgumentException(sprintf('Relationship must implement RelationshipInterface, "%s" given', json_encode($relationship)));
             }
+
             $this->relationships[] = $relationship;
         }
+
         parent::__construct();
     }
 
     /**
-     * Returns the node internal id
-     *
-     * @return int
+     * {@inheritdoc}
      */
     public function getId()
     {
@@ -62,9 +63,7 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
-     * Returns the node labels
-     *
-     * @return \GraphAware\Common\Graph\Label[]
+     * {@inheritdoc}
      */
     public function getLabels()
     {
@@ -72,10 +71,7 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
-     * Returns whether or not the node has the given <code>$name</code> label
-     *
-     * @param string $name
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasLabel($name)
     {
@@ -83,9 +79,7 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
-     * Returns the node relationships
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public function getRelationships()
     {
@@ -93,9 +87,7 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
-     * Returns whether or not the node has relationships
-     *
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasRelationships()
     {
@@ -103,9 +95,7 @@ class Node extends PropertyBag implements NodeInterface
     }
 
     /**
-     * Add a relationship to the Node
-     *
-     * @param \GraphAware\Common\Graph\RelationshipInterface $relationship
+     * {@inheritdoc}
      */
     public function addRelationship(RelationshipInterface $relationship)
     {

@@ -8,10 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Result;
-
-use GraphAware\Common\Result\StatementStatisticsInterface;
 
 class CombinedStatistics implements StatementStatisticsInterface
 {
@@ -97,7 +94,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function containsUpdates()
     {
@@ -105,7 +102,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function nodesCreated()
     {
@@ -113,7 +110,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function nodesDeleted()
     {
@@ -121,7 +118,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function relationshipsCreated()
     {
@@ -129,7 +126,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function relationshipsDeleted()
     {
@@ -137,7 +134,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function propertiesSet()
     {
@@ -145,7 +142,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function labelsAdded()
     {
@@ -153,7 +150,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function labelsRemoved()
     {
@@ -161,7 +158,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function indexesAdded()
     {
@@ -169,7 +166,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function indexesRemoved()
     {
@@ -177,7 +174,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function constraintsAdded()
     {
@@ -185,7 +182,7 @@ class CombinedStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function constraintsRemoved()
     {

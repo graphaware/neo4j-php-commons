@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Result;
 
 abstract class AbstractRecordView implements RecordViewInterface
@@ -29,7 +28,6 @@ abstract class AbstractRecordView implements RecordViewInterface
     protected $indexMap = [];
 
     /**
-     * AbstractRecordView constructor.
      * @param array $keys
      * @param array $values
      */
@@ -37,13 +35,14 @@ abstract class AbstractRecordView implements RecordViewInterface
     {
         $this->keys = $keys;
         $this->values = $values;
+
         foreach ($this->values as $k => $value) {
             $this->indexMap[] = $k;
         }
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function keys()
     {
@@ -59,7 +58,7 @@ abstract class AbstractRecordView implements RecordViewInterface
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasValues()
     {
@@ -67,7 +66,8 @@ abstract class AbstractRecordView implements RecordViewInterface
     }
 
     /**
-     * @param $key
+     * @param string $key
+     *
      * @return mixed|\GraphAware\Common\Type\NodeInterface|\GraphAware\Common\Type\RelationshipInterface|\GraphAware\Common\Type\PathInterface|
      */
     public function value($key)
@@ -81,6 +81,7 @@ abstract class AbstractRecordView implements RecordViewInterface
 
     /**
      * @param $index
+     *
      * @return mixed|\GraphAware\Common\Type\NodeInterface|\GraphAware\Common\Type\RelationshipInterface|\GraphAware\Common\Type\PathInterface
      */
     public function valueByIndex($index)
@@ -97,6 +98,6 @@ abstract class AbstractRecordView implements RecordViewInterface
      */
     public function record()
     {
-        return clone($this);
+        return clone $this;
     }
 }

@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Graph;
 
 class RelationshipType
@@ -28,11 +27,12 @@ class RelationshipType
 
     /**
      * @param string $name
-     * @return \GraphAware\Common\Graph\RelationshipType
+     * 
+     * @return RelationshipType
      */
     public static function withName($name)
     {
-        return new RelationshipType((string) $name);
+        return new self((string) $name);
     }
 
     /**

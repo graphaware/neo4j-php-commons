@@ -8,20 +8,19 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Type;
 
 interface MapAccessor
 {
     /**
-     * Retrieve the keys of the underlying map
+     * Retrieve the keys of the underlying map.
      *
      * @return array
      */
     public function keys();
 
     /**
-     * Check if the list of keys contains the given key
+     * Check if the list of keys contains the given key.
      *
      * @param string $key
      *
@@ -30,24 +29,29 @@ interface MapAccessor
     public function containsKey($key);
 
     /**
-     * Retrieve the value of the property with the given key
+     * Retrieve the value of the property with the given key.
      *
-     * @param $key
+     * @param string $key
      *
      * @return mixed
      */
     public function get($key);
 
     /**
-     * Returns whether or not the property map contains the given key
+     * Returns whether or not the property map contains the given key.
+     *
+     * @param string $key
      *
      * @return bool
      */
     public function hasValue($key);
 
     /**
-     * Returns the value for the given key, throws an exception if the key doesn't exist or returns the default given value if passed
+     * Returns the value for the given key, throws an exception if the key doesn't exist or returns the default given value if passed.
      *
+     * @param string $key
+     * @param mixed  $default
+     * 
      * @return mixed
      *
      * @throws \InvalidArgumentException
@@ -55,14 +59,14 @@ interface MapAccessor
     public function value($key, $default = null);
 
     /**
-     * Retrieve all values of the underlying collection
+     * Retrieve all values of the underlying collection.
      *
      * @return array
      */
     public function values();
 
     /**
-     * Returns a map of key value pairs of the underlying collection
+     * Returns a map of key value pairs of the underlying collection.
      *
      * @return array
      */

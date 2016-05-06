@@ -8,15 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Type;
 
 interface Identity
 {
     /**
-     * Returns the identiy identifier of the object
+     * Returns the identity identifier of the object.
      *
-     * @return mixed
+     * @return int
      */
-    function identity();
+    public function identity();
 }

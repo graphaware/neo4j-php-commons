@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Graph;
 
 class Label
@@ -27,12 +26,13 @@ class Label
     }
 
     /**
-     * @param $name
-     * @return \GraphAware\Common\Graph\Label
+     * @param string $name
+     *
+     * @return Label
      */
     public static function label($name)
     {
-        return new Label($name);
+        return new self($name);
     }
 
     /**

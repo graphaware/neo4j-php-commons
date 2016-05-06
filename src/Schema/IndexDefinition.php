@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Schema;
 
 use GraphAware\Common\Graph\Label;
@@ -16,7 +15,7 @@ use GraphAware\Common\Graph\Label;
 class IndexDefinition
 {
     /**
-     * @var \GraphAware\Common\Graph\Label
+     * @var Label
      */
     protected $label;
 
@@ -26,14 +25,14 @@ class IndexDefinition
     protected $property;
 
     /**
-     * @var null|\GraphAware\Common\Schema\ConstraintType
+     * @var null|ConstraintType
      */
     protected $constraintType;
 
     /**
-     * @param \GraphAware\Common\Graph\Label $label
-     * @param $property
-     * @param \GraphAware\Common\Schema\ConstraintType|null $constraintType
+     * @param Label               $label
+     * @param string              $property
+     * @param ConstraintType|null $constraintType
      */
     public function __construct(Label $label, $property, ConstraintType $constraintType = null)
     {
@@ -43,9 +42,9 @@ class IndexDefinition
     }
 
     /**
-     * Returns the label on which the index is created
+     * Returns the label on which the index is created.
      *
-     * @return \GraphAware\Common\Graph\Label
+     * @return Label
      */
     public function getLabel()
     {
@@ -53,7 +52,7 @@ class IndexDefinition
     }
 
     /**
-     * Returns the property on which the Index is created
+     * Returns the property on which the Index is created.
      *
      * @return string
      */
@@ -63,7 +62,7 @@ class IndexDefinition
     }
 
     /**
-     * Returns the ConstraintType of the Index
+     * Returns the ConstraintType of the Index.
      *
      * @return ConstraintType|null
      */
@@ -73,7 +72,7 @@ class IndexDefinition
     }
 
     /**
-     * Returns whether or not this index is a Uniqueness Constraint
+     * Returns whether or not this index is a Uniqueness Constraint.
      *
      * @return bool
      */
@@ -83,7 +82,7 @@ class IndexDefinition
     }
 
     /**
-     * Returns whether or not this index is a NodePropertyExistence Constraint
+     * Returns whether or not this index is a NodePropertyExistence Constraint.
      *
      * @return bool
      */

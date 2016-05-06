@@ -8,13 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Cypher;
 
 class StatementCollection implements StatementCollectionInterface
 {
     /**
-     * @var \GraphAware\Common\Cypher\Statement[]
+     * @var StatementInterface[]
      */
     protected $statements = [];
 
@@ -32,7 +31,7 @@ class StatementCollection implements StatementCollectionInterface
     }
 
     /**
-     * @return \GraphAware\Common\Cypher\Statement[]
+     * {@inheritdoc}
      */
     public function getStatements()
     {
@@ -40,7 +39,7 @@ class StatementCollection implements StatementCollectionInterface
     }
 
     /**
-     * @param \GraphAware\Common\Cypher\StatementInterface $statement
+     * {@inheritdoc}
      */
     public function add(StatementInterface $statement)
     {
@@ -48,7 +47,7 @@ class StatementCollection implements StatementCollectionInterface
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function isEmpty()
     {
@@ -56,7 +55,7 @@ class StatementCollection implements StatementCollectionInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function getCount()
     {

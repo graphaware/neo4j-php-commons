@@ -8,22 +8,21 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Type;
 
 interface Node extends MapAccessor, Identity
 {
     /**
-     * Returns all labels of the node
+     * Returns all labels of the node.
      *
      * @return string[]
      */
-    function labels();
+    public function labels();
 
     /**
      * @param string $label
      *
      * @return bool
      */
-    function hasLabel($label);
+    public function hasLabel($label);
 }

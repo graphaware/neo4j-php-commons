@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Result;
 
 class StatementStatistics implements StatementStatisticsInterface
@@ -81,7 +80,7 @@ class StatementStatistics implements StatementStatisticsInterface
         $keys = [
             'contains_updates', 'nodes_created', 'nodes_deleted', 'properties_set', 'labels_added', 'labels_removed',
             'indexes_added', 'indexes_removed', 'constraints_added', 'constraints_removed', 'relationships_deleted',
-            'relationships_created'
+            'relationships_created',
         ];
 
         foreach ($statistics as $key => $value) {
@@ -100,7 +99,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function containsUpdates()
     {
@@ -108,7 +107,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function nodesCreated()
     {
@@ -116,7 +115,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function nodesDeleted()
     {
@@ -124,7 +123,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function relationshipsCreated()
     {
@@ -132,7 +131,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function relationshipsDeleted()
     {
@@ -140,7 +139,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function propertiesSet()
     {
@@ -148,7 +147,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function labelsAdded()
     {
@@ -156,7 +155,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function labelsRemoved()
     {
@@ -164,7 +163,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function indexesAdded()
     {
@@ -172,7 +171,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function indexesRemoved()
     {
@@ -180,7 +179,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function constraintsAdded()
     {
@@ -188,7 +187,7 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @return int
+     * {@inheritdoc}
      */
     public function constraintsRemoved()
     {
@@ -196,15 +195,15 @@ class StatementStatistics implements StatementStatisticsInterface
     }
 
     /**
-     * @param $key
+     * @param string $key
+     *
      * @return string
      */
     private function toCamelCase($key)
     {
         list($start, $end) = explode('_', $key);
-        $str = strtolower($start) . ucfirst($end);
+        $str = strtolower($start).ucfirst($end);
 
         return $str;
     }
-
 }
