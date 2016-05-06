@@ -128,7 +128,7 @@ class Statement implements StatementInterface
     /**
      * @return StatementType
      */
-    public function getStatementType()
+    public function statementType()
     {
         return $this->type;
     }
