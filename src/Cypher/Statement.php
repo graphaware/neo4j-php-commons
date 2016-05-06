@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Cypher;
 
 class Statement implements StatementInterface
@@ -29,13 +28,13 @@ class Statement implements StatementInterface
     protected $tag = null;
 
     /**
-     * @var \GraphAware\Common\Cypher\StatementType
+     * @var StatementType
      */
     protected $type;
 
     /**
-     * @param string $text
-     * @param array $parameters
+     * @param string      $text
+     * @param array       $parameters
      * @param string|null $tag
      * @param StatementType
      */
@@ -50,11 +49,12 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @param string $text
-     * @param array $parameters
+     * @param string      $text
+     * @param array       $parameters
      * @param string|null $tag
-     * @param string $statementType
-     * @return \GraphAware\Common\Cypher\Statement
+     * @param string      $statementType
+     *
+     * @return Statement
      */
     public static function create($text, array $parameters = array(), $tag = null, $statementType = StatementType::READ_WRITE)
     {
@@ -62,11 +62,12 @@ class Statement implements StatementInterface
             throw new \InvalidArgumentException(sprintf('Value %s is invalid as statement type, possible values are %s', $statementType, json_encode(StatementType::keys())));
         }
         $type = new StatementType($statementType);
+
         return new self($text, $parameters, $tag, $type);
     }
 
     /**
-     * @return string
+     * {@inheritdoc}
      */
     public function text()
     {
@@ -74,7 +75,7 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @return array
+     * {@inheritdoc}
      */
     public function parameters()
     {
@@ -82,8 +83,7 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @param string $text
-     * @return \GraphAware\Common\Cypher\Statement
+     * {@inheritdoc}
      */
     public function withText($text)
     {
@@ -91,8 +91,7 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @param array $parameters
-     * @return \GraphAware\Common\Cypher\Statement
+     * {@inheritdoc}
      */
     public function withParameters(array $parameters)
     {
@@ -100,8 +99,7 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @param array $parameters
-     * @return \GraphAware\Common\Cypher\Statement
+     * {@inheritdoc}
      */
     public function withUpdatedParameters(array $parameters)
     {
@@ -127,7 +125,7 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @return \GraphAware\Common\Cypher\StatementType
+     * @return StatementType
      */
     public function statementType()
     {

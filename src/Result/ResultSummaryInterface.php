@@ -8,16 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Result;
 
 use GraphAware\Common\Cypher\StatementInterface;
+use GraphAware\Common\Cypher\StatementType;
 
 interface ResultSummaryInterface
 {
     /**
-     * ResultSummaryInterface constructor.
-     *
      * @param \GraphAware\Common\Cypher\StatementInterface $statement
      */
     public function __construct(StatementInterface $statement);
@@ -28,7 +26,7 @@ interface ResultSummaryInterface
     public function statement();
 
     /**
-     * @return \GraphAware\Common\Result\StatementStatistics
+     * @return StatementStatistics
      */
     public function updateStatistics();
 
@@ -38,7 +36,7 @@ interface ResultSummaryInterface
     public function notifications();
 
     /**
-     * @return string
+     * @return StatementType
      */
     public function statementType();
 }

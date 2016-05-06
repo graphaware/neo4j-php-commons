@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Graph;
 
 class Relationship extends PropertyBag implements RelationshipInterface
@@ -19,25 +18,25 @@ class Relationship extends PropertyBag implements RelationshipInterface
     protected $id;
 
     /**
-     * @var \GraphAware\Common\Graph\RelationshipType
+     * @var RelationshipType
      */
     protected $type;
 
     /**
-     * @var \GraphAware\Common\Graph\NodeInterface
+     * @var NodeInterface
      */
     protected $startNode;
 
     /**
-     * @var \GraphAware\Common\Graph\NodeInterface
+     * @var NodeInterface
      */
     protected $endNode;
 
     /**
-     * @param int $id
-     * @param \GraphAware\Common\Graph\RelationshipType $relationshipType
-     * @param \GraphAware\Common\Graph\NodeInterface $startNode
-     * @param \GraphAware\Common\Graph\NodeInterface $endNode
+     * @param int              $id
+     * @param RelationshipType $relationshipType
+     * @param NodeInterface    $startNode
+     * @param NodeInterface    $endNode
      */
     public function __construct($id, RelationshipType $relationshipType, NodeInterface $startNode, NodeInterface $endNode)
     {
@@ -45,13 +44,12 @@ class Relationship extends PropertyBag implements RelationshipInterface
         $this->type = $relationshipType;
         $this->startNode = $startNode;
         $this->endNode = $endNode;
+
         parent::__construct();
     }
 
     /**
-     * Returns the Relationship internal id
-     *
-     * @return int
+     * {@inheritdoc}
      */
     public function getId()
     {
@@ -59,9 +57,7 @@ class Relationship extends PropertyBag implements RelationshipInterface
     }
 
     /**
-     * Returns the Relationship type
-     *
-     * @return RelationshipType
+     * {@inheritdoc}
      */
     public function getType()
     {
@@ -69,9 +65,7 @@ class Relationship extends PropertyBag implements RelationshipInterface
     }
 
     /**
-     * Returns the start node of the Relationship
-     *
-     * @return \GraphAware\Common\Graph\NodeInterface
+     * {@inheritdoc}
      */
     public function getStartNode()
     {
@@ -79,9 +73,7 @@ class Relationship extends PropertyBag implements RelationshipInterface
     }
 
     /**
-     * Returns the end node of the Relationship
-     *
-     * @return \GraphAware\Common\Graph\NodeInterface
+     * {@inheritdoc}
      */
     public function getEndNode()
     {
@@ -89,12 +81,7 @@ class Relationship extends PropertyBag implements RelationshipInterface
     }
 
     /**
-     * Returns the other node of the Relationship, based on the given <code>Node</code>.
-     *
-     * @param \GraphAware\Common\Graph\NodeInterface $node
-     * @return \GraphAware\Common\Graph\NodeInterface
-     *
-     * @throws \InvalidArgumentException When the given node does not make part of the Relationship
+     * {@inheritdoc}
      */
     public function getOtherNode(NodeInterface $node)
     {
@@ -112,9 +99,7 @@ class Relationship extends PropertyBag implements RelationshipInterface
     }
 
     /**
-     * Returns the direction of the Relationship for a <code>Node</code> point of view
-     *
-     * @param \GraphAware\Common\Graph\NodeInterface $node
+     * {@inheritdoc}
      */
     public function getDirection(NodeInterface $node)
     {
@@ -128,9 +113,7 @@ class Relationship extends PropertyBag implements RelationshipInterface
     }
 
     /**
-     * Returns the nodes bound to this Relationship.
-     *
-     * @return \GraphAware\Common\Graph\NodeInterface[]
+     * {@inheritdoc}
      */
     public function getNodes()
     {
@@ -138,10 +121,7 @@ class Relationship extends PropertyBag implements RelationshipInterface
     }
 
     /**
-     * Returns whether or not the Relationship is of the given <code>relationshipType</code>.
-     *
-     * @param \GraphAware\Common\Graph\RelationshipType $relationshipType
-     * @return bool
+     * {@inheritdoc}
      */
     public function isType(RelationshipType $relationshipType)
     {

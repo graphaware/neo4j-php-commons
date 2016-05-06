@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Result;
 
 use GraphAware\Common\Cypher\StatementInterface;
@@ -26,7 +25,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     protected $records = [];
 
     /**
-     * @var \GraphAware\Common\Result\ResultSummaryInterface
+     * @var ResultSummaryInterface
      */
     protected $resultSummary;
 
@@ -41,7 +40,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     protected $position = -1;
 
     /**
-     * @param \GraphAware\Common\Cypher\StatementInterface $statement
+     * {@inheritdoc}
      */
     public function __construct(StatementInterface $statement)
     {
@@ -49,7 +48,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     }
 
     /**
-     * @return \GraphAware\Common\Cypher\StatementInterface
+     * {@inheritdoc}
      */
     public function statement()
     {
@@ -57,7 +56,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     }
 
     /**
-     * @param \GraphAware\Common\Result\RecordViewInterface $record
+     * @param RecordViewInterface $record
      */
     public function addRecord(RecordViewInterface $record)
     {
@@ -65,7 +64,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     }
 
     /**
-     * @return \GraphAware\Common\Result\RecordViewInterface[]
+     * {@inheritdoc}
      */
     public function records()
     {
@@ -73,7 +72,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     }
 
     /**
-     * @param \GraphAware\Common\Result\ResultSummaryInterface $resultSummary
+     * @param ResultSummaryInterface $resultSummary
      */
     public function setResultSummary(ResultSummaryInterface $resultSummary)
     {
@@ -81,7 +80,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     }
 
     /**
-     * @return \GraphAware\Common\Result\ResultSummaryInterface
+     * {@inheritdoc}
      */
     public function summarize()
     {
@@ -89,7 +88,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasSummary()
     {
@@ -97,7 +96,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function isOpen()
     {
@@ -105,7 +104,7 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
     }
 
     /**
-     * @void
+     * {@inheritdoc}
      */
     public function close()
     {
@@ -147,7 +146,8 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
      */
     public function last()
     {
-        while ($this->next()) {}
+        while ($this->next()) {
+        }
 
         return $this->position !== -1;
     }
@@ -157,6 +157,6 @@ abstract class AbstractRecordCursor implements RecordCursorInterface
      */
     public function isLast()
     {
-        return $this->position === count($this->records) -1;
+        return $this->position === count($this->records) - 1;
     }
 }

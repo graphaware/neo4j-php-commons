@@ -8,40 +8,39 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Graph;
 
 use MyCLabs\Enum\Enum;
 
 class Direction extends Enum
 {
-    const INCOMING = "INCOMING";
+    const INCOMING = 'INCOMING';
 
-    const OUTGOING = "OUTGOING";
+    const OUTGOING = 'OUTGOING';
 
-    const BOTH = "BOTH";
+    const BOTH = 'BOTH';
 
     /**
-     * @return \GraphAware\Common\Graph\Direction
+     * @return Direction
      */
     public static function INCOMING()
     {
-        return new Direction(self::INCOMING);
+        return new self(self::INCOMING);
     }
 
     /**
-     * @return \GraphAware\Common\Graph\Direction
+     * @return Direction
      */
     public static function OUTGOING()
     {
-        return new Direction(self::OUTGOING);
+        return new self(self::OUTGOING);
     }
 
     /**
-     * @return \GraphAware\Common\Graph\Direction
+     * @return Direction
      */
     public static function BOTH()
     {
-        return new Direction(self::BOTH);
+        return new self(self::BOTH);
     }
 }

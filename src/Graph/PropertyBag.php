@@ -8,14 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Graph;
 
 /**
  * PropertyBag is a Common API for handling both Nodes and Relationships properties.
- * It acts as a container for key/value pairs
+ * It acts as a container for key/value pairs.
  */
-class PropertyBag
+class PropertyBag implements PropertyBagInterface
 {
     /**
      * @var array
@@ -31,13 +30,7 @@ class PropertyBag
     }
 
     /**
-     * Returns a property value for the given <code>$key</code>. Throws an exception if not found.
-     * If you want to provide a default value in case the property does not exist, use <code>get()</code> instead.
-     *
-     * @param $key
-     * @return mixed
-     *
-     * @throws \InvalidArgumentException when the object has no property with the given <code>$key</code>
+     * {@inheritdoc}
      */
     public function getProperty($key)
     {
@@ -49,10 +42,7 @@ class PropertyBag
     }
 
     /**
-     * Returns whether or not a property exist with the given <code>$key</code>
-     *
-     * @param string $key
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasProperty($key)
     {
@@ -60,9 +50,7 @@ class PropertyBag
     }
 
     /**
-     * Returns all properties of this bag
-     *
-     * @return array
+     * {@inheritdoc}
      */
     public function getProperties()
     {
@@ -70,10 +58,7 @@ class PropertyBag
     }
 
     /**
-     * Sets a property value for the given <code>$key</code>
-     *
-     * @param string $key
-     * @param mixed $value
+     * {@inheritdoc}
      */
     public function setProperty($key, $value)
     {

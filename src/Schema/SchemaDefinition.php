@@ -8,7 +8,6 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Schema;
 
 use GraphAware\Common\Graph\Label;
@@ -16,12 +15,12 @@ use GraphAware\Common\Graph\Label;
 class SchemaDefinition
 {
     /**
-     * @var \GraphAware\Common\Schema\IndexDefinition[]
+     * @var IndexDefinition[]
      */
     protected $indexes = [];
 
     /**
-     * @param \GraphAware\Common\Schema\IndexDefinition $index
+     * @param IndexDefinition $index
      */
     public function addIndex(IndexDefinition $index)
     {
@@ -29,9 +28,9 @@ class SchemaDefinition
     }
 
     /**
-     * Returns all Indexes of the Schema
+     * Returns all Indexes of the Schema.
      *
-     * @return \GraphAware\Common\Schema\IndexDefinition[]
+     * @return IndexDefinition[]
      */
     public function getIndexes()
     {
@@ -39,7 +38,7 @@ class SchemaDefinition
     }
 
     /**
-     * Returns whether or not the Schema contains Indexes
+     * Returns whether or not the Schema contains Indexes.
      *
      * @return bool
      */
@@ -51,8 +50,9 @@ class SchemaDefinition
     /**
      * Returns whether or not the Schema contains an Index for the given <code>Label</code> and <code>property</code> combination.
      *
-     * @param \GraphAware\Common\Graph\Label $label
-     * @param $property
+     * @param Label  $label
+     * @param string $property
+     * 
      * @return bool
      */
     public function hasIndex(Label $label, $property)
@@ -67,7 +67,7 @@ class SchemaDefinition
     }
 
     /**
-     * Returns whether or not the Schema contains Indexes with Uniqueness ConstraintType
+     * Returns whether or not the Schema contains Indexes with Uniqueness ConstraintType.
      *
      * @return bool
      */
@@ -83,7 +83,7 @@ class SchemaDefinition
     }
 
     /**
-     * @return \GraphAware\Common\Schema\Index[]
+     * @return IndexDefinition[]
      */
     public function getUniqueConstraints()
     {

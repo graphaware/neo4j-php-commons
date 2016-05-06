@@ -8,35 +8,35 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Result;
 
 interface Record
 {
     /**
-     * Returns the keys of the values
+     * Returns the keys of the values.
      *
      * @return array
      */
     public function keys();
 
     /**
-     * Returns whether or not this Record has any value
+     * Returns whether or not this Record has any value.
      *
      * @return bool
      */
     public function hasValues();
 
     /**
-     * Returns the value for the given <code>key</code>
+     * Returns the value for the given <code>key</code>.
      *
      * @param string $key
+     *
      * @return mixed
      */
     public function value($key);
 
     /**
-     * Retrieve the value for the given <code>key</code>
+     * Retrieve the value for the given <code>key</code>.
      *
      * @param string $key
      *
@@ -45,7 +45,7 @@ interface Record
     public function get($key);
 
     /**
-     * Returns whether or not this Record contains a value with the given key
+     * Returns whether or not this Record contains a value with the given key.
      *
      * @param string $key
      *
@@ -58,6 +58,7 @@ interface Record
      * value is a <code>Node</code>, throws an exception otherwise.
      *
      * @param string $key
+     *
      * @return \GraphAware\Common\Type\NodeInterface
      */
     public function nodeValue($key);
@@ -67,6 +68,7 @@ interface Record
      * value is a <code>Relationship</code>, throws an exception otherwise.
      *
      * @param string $key
+     *
      * @return \GraphAware\Common\Type\RelationshipInterface
      */
     public function relationshipValue($key);
@@ -76,12 +78,13 @@ interface Record
      * value is a <code>Path</code>, throws an exception otherwise.
      *
      * @param string $key
+     *
      * @return \GraphAware\Common\Type\PathInterface
      */
     public function pathValue($key);
 
     /**
-     * Returns all the values of this Record
+     * Returns all the values of this Record.
      *
      * @return array
      */
@@ -89,12 +92,13 @@ interface Record
 
     /**
      * @param int $index
+     *
      * @return mixed
      */
     public function valueByIndex($index);
 
     /**
-     * Retrieve the value at the given field index
+     * Retrieve the value at the given field index.
      *
      * @param int $index
      *
@@ -103,9 +107,9 @@ interface Record
     public function getByIndex($index);
 
     /**
-     * Returns a copy of this Record
+     * Returns a copy of this Record.
      *
-     * @return \GraphAware\Common\Result\RecordCursorInterface
+     * @return RecordCursorInterface
      */
     public function record();
 }

@@ -8,24 +8,23 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Type;
 
 interface Relationship extends MapAccessor, Identity
 {
     /**
-     * Returns the type of the relationship
+     * Returns the type of the relationship.
      *
      * @return string
      */
-    function type();
+    public function type();
 
     /**
-     * Returns whether or not the relationship has the given type
+     * Returns whether or not the relationship has the given type.
      *
      * @param string $type
      *
      * @return bool
      */
-    function hasType($type);
+    public function hasType($type);
 }

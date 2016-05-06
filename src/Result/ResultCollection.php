@@ -8,15 +8,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Result;
 
 class ResultCollection implements \Iterator
 {
+    /**
+     * @var int
+     */
     protected $position = 0;
 
     /**
-     * @var \GraphAware\Common\Result\RecordCursorInterface[]
+     * @var RecordCursorInterface[]
      */
     protected $results = [];
 
@@ -28,15 +30,17 @@ class ResultCollection implements \Iterator
     /**
      * Add a Result <code>RecordCursorInterface</code> to the ResultCollection.
      *
-     * @param \GraphAware\Common\Result\RecordCursorInterface $recordCursor
+     * @param RecordCursorInterface $recordCursor
+     * @param null|string           $tag
      */
     public function add(RecordCursorInterface $recordCursor, $tag = null)
     {
         $this->results[] = $recordCursor;
+
         if (null !== $tag) {
             $this->tagMap[$tag] = count($this->results) - 1;
         } elseif ($recordCursor->statement()->hasTag()) {
-            $this->tagMap[$recordCursor->statement()->getTag()] = count($this->results()) -1;
+            $this->tagMap[$recordCursor->statement()->getTag()] = count($this->results()) - 1;
         }
     }
 
@@ -44,9 +48,9 @@ class ResultCollection implements \Iterator
      * Returns a RecordCursorInterface (Result) for the given tag (tag passed along with the Cypher statement).
      *
      * @param string $tag
-     * @param mixed $default
+     * @param mixed  $default
      *
-     * @return \GraphAware\Common\Result\RecordCursorInterface|null
+     * @return RecordCursorInterface|null
      */
     public function get($tag, $default = null)
     {
@@ -63,6 +67,7 @@ class ResultCollection implements \Iterator
 
     /**
      * @param $tag
+     *
      * @return bool
      */
     public function contains($tag)
@@ -71,7 +76,7 @@ class ResultCollection implements \Iterator
     }
 
     /**
-     * @return \GraphAware\Common\Result\RecordCursorInterface[]
+     * @return RecordCursorInterface[]
      */
     public function results()
     {
@@ -88,38 +93,57 @@ class ResultCollection implements \Iterator
         return count($this->results);
     }
 
-    function rewind()
+    /**
+     * {@inheritdoc}
+     */
+    public function rewind()
     {
         $this->position = 0;
     }
 
-    function current() {
+    /**
+     * @return RecordCursorInterface
+     */
+    public function current()
+    {
         return $this->results[$this->position];
     }
 
-    function key() {
+    /**
+     * {@inheritdoc}
+     */
+    public function key()
+    {
         return $this->position;
     }
 
-    function next() {
+    /**
+     * {@inheritdoc}
+     */
+    public function next()
+    {
         ++$this->position;
     }
 
-    function valid() {
+    /**
+     * {@inheritdoc}
+     */
+    public function valid()
+    {
         return isset($this->results[$this->position]);
     }
 
     /**
-     * @return \GraphAware\Common\Result\CombinedStatistics
+     * @return CombinedStatistics
      */
     public function updateStatistics()
     {
         $combinedStats = new CombinedStatistics();
+
         foreach ($this->results as $result) {
             $combinedStats->mergeStats($result->summarize()->updateStatistics());
         }
 
         return $combinedStats;
     }
-
 }

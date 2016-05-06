@@ -2,7 +2,7 @@
 
 namespace GraphAware\Common\Result;
 
-/**
+/*
  * This file is part of the GraphAware Neo4j Common package.
  *
  * (c) GraphAware Limited <http://graphaware.com>
@@ -15,30 +15,33 @@ use GraphAware\Common\Cypher\StatementInterface;
 
 interface StatementResult
 {
+    /**
+     * @param StatementInterface $statement
+     */
     public function __construct(StatementInterface $statement);
 
     /**
-     * @return \GraphAware\Common\Cypher\StatementInterface
+     * @return StatementInterface
      */
     public function statement();
 
     /**
-     * @return \GraphAware\Common\Result\ResultSummaryInterface
+     * @return ResultSummaryInterface
      */
     public function summarize();
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function hasSummary();
 
     /**
-     * @return \GraphAware\Common\Result\Record[]
+     * @return Record[]
      */
     public function records();
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function isOpen();
 
@@ -53,7 +56,7 @@ interface StatementResult
     public function size();
 
     /**
-     * @return null|\GraphAware\Common\Result\Record
+     * @return null|Record
      */
     public function firstRecord();
 }

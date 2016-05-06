@@ -8,12 +8,18 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 namespace GraphAware\Common\Driver;
 
 interface SessionInterface
 {
-    function run($statement, $parameters, $tag = null);
+    /**
+     * @param string      $statement
+     * @param array       $parameters
+     * @param null|string $tag
+     *
+     * @return mixed
+     */
+    public function run($statement, array $parameters = [], $tag = null);
 
-    function close();
+    public function close();
 }
