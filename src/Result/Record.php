@@ -59,7 +59,7 @@ interface Record
      *
      * @param string $key
      *
-     * @return \GraphAware\Common\Type\NodeInterface
+     * @return \GraphAware\Common\Type\Node
      */
     public function nodeValue($key);
 
@@ -69,7 +69,7 @@ interface Record
      *
      * @param string $key
      *
-     * @return \GraphAware\Common\Type\RelationshipInterface
+     * @return \GraphAware\Common\Type\Relationship
      */
     public function relationshipValue($key);
 
@@ -79,7 +79,7 @@ interface Record
      *
      * @param string $key
      *
-     * @return \GraphAware\Common\Type\PathInterface
+     * @return \GraphAware\Common\Type\Path
      */
     public function pathValue($key);
 

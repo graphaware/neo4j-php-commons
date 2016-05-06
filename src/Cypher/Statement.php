@@ -43,6 +43,7 @@ class Statement implements StatementInterface
         $this->text = (string) $text;
         $this->parameters = $parameters;
         $this->type = $statementType;
+
         if (null !== $tag) {
             $this->tag = (string) $tag;
         }
