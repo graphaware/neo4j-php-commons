@@ -10,6 +10,21 @@
  */
 namespace GraphAware\Common\Type;
 
-interface RelationshipInterface extends Relationship
+interface RelationshipInterface extends MapAccessorInterface, IdentityInterface
 {
+    /**
+     * Returns the type of the relationship.
+     *
+     * @return string
+     */
+    public function type();
+
+    /**
+     * Returns whether or not the relationship has the given type.
+     *
+     * @param string $type
+     *
+     * @return bool
+     */
+    public function hasType($type);
 }

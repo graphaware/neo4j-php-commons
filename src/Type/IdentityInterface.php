@@ -10,7 +10,7 @@
  */
 namespace GraphAware\Common\Type;
 
-interface Identity
+interface IdentityInterface
 {
     /**
      * Returns the identity identifier of the object.

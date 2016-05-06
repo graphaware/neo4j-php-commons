@@ -10,7 +10,7 @@
  */
 namespace GraphAware\Common\Type;
 
-interface MapAccessor
+interface MapAccessorInterface
 {
     /**
      * Retrieve the keys of the underlying map.
