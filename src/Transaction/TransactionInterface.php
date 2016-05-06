@@ -10,6 +10,10 @@
  */
 namespace GraphAware\Common\Transaction;
 
+use GraphAware\Common\Cypher\Statement;
+use GraphAware\Common\Cypher\StatementInterface;
+use GraphAware\Common\Result\Result;
+
 interface TransactionInterface
 {
     /**
@@ -46,4 +50,20 @@ interface TransactionInterface
      * @param null|string $tag
      */
     public function push($statement, array $parameters = array(), $tag = null);
+
+    public function begin();
+
+    /**
+     * @param Statement $statement
+     *
+     * @return Result
+     */
+    public function run(Statement $statement);
+
+    /**
+     * @param StatementInterface[] $statements
+     *
+     * @return mixed
+     */
+    public function runMultiple(array $statements);
 }
