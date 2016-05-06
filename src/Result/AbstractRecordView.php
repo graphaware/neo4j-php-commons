@@ -50,7 +50,7 @@ abstract class AbstractRecordView implements RecordViewInterface
     }
 
     /**
-     * @return mixed[]|\GraphAware\Common\Type\NodeInterface[]|\GraphAware\Common\Type\RelationshipInterface[]|\GraphAware\Common\Type\PathInterface[]
+     * @return mixed[]|\GraphAware\Common\Type\Node[]|\GraphAware\Common\Type\Relationship[]|\GraphAware\Common\Type\Path[]
      */
     public function values()
     {
@@ -68,7 +68,7 @@ abstract class AbstractRecordView implements RecordViewInterface
     /**
      * @param string $key
      *
-     * @return mixed|\GraphAware\Common\Type\NodeInterface|\GraphAware\Common\Type\RelationshipInterface|\GraphAware\Common\Type\PathInterface|
+     * @return mixed|\GraphAware\Common\Type\Node|\GraphAware\Common\Type\Relationship|\GraphAware\Common\Type\Path|
      */
     public function value($key)
     {
@@ -82,7 +82,7 @@ abstract class AbstractRecordView implements RecordViewInterface
     /**
      * @param $index
      *
-     * @return mixed|\GraphAware\Common\Type\NodeInterface|\GraphAware\Common\Type\RelationshipInterface|\GraphAware\Common\Type\PathInterface
+     * @return mixed|\GraphAware\Common\Type\Node|\GraphAware\Common\Type\Relationship|\GraphAware\Common\Type\Path
      */
     public function valueByIndex($index)
     {
