@@ -11,7 +11,6 @@
 namespace GraphAware\Common\Driver;
 
 use GraphAware\Common\Transaction\TransactionInterface;
-use GraphAware\Neo4j\Client\HttpDriver\Pipeline;
 
 interface SessionInterface
 {
@@ -36,7 +35,7 @@ interface SessionInterface
      * @param array       $parameters
      * @param string|null $tag
      *
-     * @return Pipeline
+     * @return PipelineInterface
      */
     public function createPipeline($query = null, array $parameters = array(), $tag = null);
 }
