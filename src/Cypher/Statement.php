@@ -110,7 +110,7 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @return null|string
+     * {@inheritdoc}
      */
     public function getTag()
     {
@@ -118,7 +118,7 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @return bool
+     * {@inheritdoc}
      */
     public function hasTag()
     {
@@ -126,7 +126,7 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @return StatementType
+     * {@inheritdoc}
      */
     public function statementType()
     {
