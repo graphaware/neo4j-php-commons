@@ -32,17 +32,20 @@ interface Record
      * @param string $key
      *
      * @return mixed
+     *
+     * @deprecated Use <code>get()</code> instead.
      */
     public function value($key);
 
     /**
      * Retrieve the value for the given <code>key</code>.
      *
-     * @param string $key
+     * @param string $key          The identifier key
+     * @param mixed  $defaultValue A default value to return in case the record doesn't contains the given <code>key</code>.
      *
      * @return mixed
      */
-    public function get($key);
+    public function get($key, $defaultValue = null);
 
     /**
      * Returns whether or not this Record contains a value with the given key.
