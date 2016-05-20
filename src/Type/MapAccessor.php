@@ -38,6 +38,15 @@ interface MapAccessor
     public function get($key);
 
     /**
+     * Wrapping method for $this->get().
+     *
+     * @param string $name
+     *
+     * @return mixed
+     */
+    public function __get($name);
+
+    /**
      * Returns whether or not the property map contains the given key.
      *
      * @param string $key
