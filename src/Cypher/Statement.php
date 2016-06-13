@@ -8,6 +8,7 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+
 namespace GraphAware\Common\Cypher;
 
 class Statement implements StatementInterface
@@ -68,10 +69,10 @@ class Statement implements StatementInterface
     }
 
     /**
-     * @param string $text
-     * @param array $parameters
+     * @param string      $text
+     * @param array       $parameters
      * @param string|null $tag
-     * 
+     *
      * @return \GraphAware\Common\Cypher\Statement
      */
     public static function prepare($text, array $parameters = array(), $tag = null)
