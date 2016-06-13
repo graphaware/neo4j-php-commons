@@ -68,6 +68,20 @@ class Statement implements StatementInterface
     }
 
     /**
+     * @param string $text
+     * @param array $parameters
+     * @param string|null $tag
+     * 
+     * @return \GraphAware\Common\Cypher\Statement
+     */
+    public static function prepare($text, array $parameters = array(), $tag = null)
+    {
+        $type = StatementType::READ_WRITE;
+
+        return new self($text, $parameters, $tag, $type);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function text()
