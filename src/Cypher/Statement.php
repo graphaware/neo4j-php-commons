@@ -77,7 +77,7 @@ class Statement implements StatementInterface
      */
     public static function prepare($text, array $parameters = array(), $tag = null)
     {
-        $type = StatementType::READ_WRITE;
+        $type = new StatementType(StatementType::READ_WRITE);
 
         return new self($text, $parameters, $tag, $type);
     }
