@@ -56,7 +56,16 @@ interface StatementResult
     public function size();
 
     /**
-     * @return null|Record
+     * @return Record
+     * @throws \RuntimeException When there is no record
      */
     public function firstRecord();
+
+    /**
+     * Returns the first record of the result or the given default if the Record cursor is empty
+     *
+     * @param mixed $default
+     * @return mixed|Record
+     */
+    public function firstRecordOrDefault($default);
 }
