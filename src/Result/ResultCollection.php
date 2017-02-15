@@ -142,7 +142,9 @@ class ResultCollection implements \Iterator
         $combinedStats = new CombinedStatistics();
 
         foreach ($this->results as $result) {
-            $combinedStats->mergeStats($result->summarize()->updateStatistics());
+            if (null !== $result->summarize()->updateStatistics()) {
+                $combinedStats->mergeStats($result->summarize()->updateStatistics());
+            }
         }
 
         return $combinedStats;
