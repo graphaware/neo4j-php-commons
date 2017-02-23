@@ -19,7 +19,7 @@ interface GraphDatabaseInterface
 {
     /**
      * @param string                             $uri
-     * @param ConfigInterface|Configuration|null $config
+     * @param Configuration|null $config
      *
      * @return DriverInterface
      */
