@@ -11,14 +11,15 @@
 
 namespace GraphAware\Common;
 
+use GraphAware\Common\Connection\Configuration;
 use GraphAware\Common\Driver\ConfigInterface;
 use GraphAware\Common\Driver\DriverInterface;
 
 interface GraphDatabaseInterface
 {
     /**
-     * @param string               $uri
-     * @param ConfigInterface|null $config
+     * @param string                             $uri
+     * @param ConfigInterface|Configuration|null $config
      *
      * @return DriverInterface
      */
