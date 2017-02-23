@@ -9,7 +9,7 @@ use GraphAware\Common\Driver\ConfigInterface;
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-class Configuration implements ConfigInterface
+class BaseConfiguration implements ConfigInterface
 {
     /**
      * @var array
