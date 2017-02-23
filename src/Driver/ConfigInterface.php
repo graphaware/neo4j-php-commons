@@ -11,6 +11,9 @@
 
 namespace GraphAware\Common\Driver;
 
+/**
+ * @deprecated Will be removed i 4.0.
+ */
 interface ConfigInterface
 {
 }
