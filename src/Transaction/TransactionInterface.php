@@ -14,6 +14,7 @@ namespace GraphAware\Common\Transaction;
 use GraphAware\Common\Cypher\Statement;
 use GraphAware\Common\Cypher\StatementInterface;
 use GraphAware\Common\Result\Result;
+use GraphAware\Common\Result\ResultCollection;
 
 interface TransactionInterface
 {
@@ -64,7 +65,7 @@ interface TransactionInterface
     /**
      * @param StatementInterface[] $statements
      *
-     * @return mixed
+     * @return ResultCollection|Result[]
      */
     public function runMultiple(array $statements);
 }
