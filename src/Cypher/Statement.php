@@ -39,7 +39,7 @@ class Statement implements StatementInterface
      * @param string|null $tag
      * @param StatementType
      */
-    private function __construct($text, array $parameters = array(), $tag = null, StatementType $statementType)
+    private function __construct($text, array $parameters = array(), $tag = null, StatementType $statementType = null)
     {
         $this->text = (string) $text;
         $this->parameters = $parameters;
